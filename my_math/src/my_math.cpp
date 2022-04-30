@@ -26,6 +26,8 @@ void print_factorial(void)
 	}
 }
 
+/*************************************** Compile time polymorphism - START ***************************************/
+
 void print_sum(int a, int b)
 {
     cout << "The sum of integers " << a << " and " << b << " is: " << a+b << endl;
@@ -35,3 +37,5 @@ void print_sum(double a, double b)
 {
 	cout << "The sum of doubles " << a << " and " << b << " is: " << a+b << endl;
 }
+
+/*************************************** Compile time polymorphism - END *****************************************/

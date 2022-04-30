@@ -1,5 +1,6 @@
 #include <iostream>
 #include "my_math/my_math.h"
+#include "array_pointer/array_pointer.h"
 
 using namespace std;
 
@@ -9,8 +10,7 @@ int main(void)
     
 	print_factorial();
 
-	print_sum(5,10);
-	print_sum(5.5,10.65);
+	create_array();
 
 	return 0;
 }
