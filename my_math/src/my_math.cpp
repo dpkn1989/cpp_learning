@@ -3,10 +3,11 @@
 
 using namespace std;
 
-void print_factorial(int& a)
+void print_factorial(void)
 {
-    int k = 1;
-	cout << "Address of " << a << " is: " << &a << endl;
+    int a, k = 1;
+	cout << "Enter a number: ";
+	cin >> a;
 
     if(a == 0)
 	{
@@ -23,4 +24,14 @@ void print_factorial(int& a)
 	    }
 		cout << "Factorial of " << a << " is: " << k << endl;
 	}
+}
+
+void print_sum(int a, int b)
+{
+    cout << "The sum of integers " << a << " and " << b << " is: " << a+b << endl;
+}
+
+void print_sum(double a, double b)
+{
+	cout << "The sum of doubles " << a << " and " << b << " is: " << a+b << endl;
 }

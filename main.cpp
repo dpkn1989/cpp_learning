@@ -5,13 +5,12 @@ using namespace std;
 
 int main(void)
 {
-	int i;
 	cout << "Sri Rama Chandra! Jagannatha! Panduranga!" << endl;
-    cout << "Enter a number: ";
-	cin >> i;
-	cout << "Address of " << i << " is: " << &i << endl;
+    
+	print_factorial();
 
-	print_factorial(i);
+	print_sum(5,10);
+	print_sum(5.5,10.65);
 
 	return 0;
 }
