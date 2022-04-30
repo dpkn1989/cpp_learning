@@ -29,6 +29,7 @@ void print_array(int* ptr,int size)
 	cout << "Pointer print_array() called" << endl;
 	cout << "The array arr[" << size << "] = {";
 
+    // Range for loop cannot be used on pointer size is unknown to pointer
 	for(int j=0; j<size-1; j++)
 	{
 		cout << ptr[j] << ", ";
@@ -41,13 +42,15 @@ void print_array(int* ptr,int size)
 void print_array(int(&arr)[5])
 {
     cout << "Reference print_array() called" << endl;
-	cout << "The array arr[5] = {";
+	cout << "The array arr[5] = ";
 
-	for(int j=0; j<4; j++)
+    // Range for loop used on array reference
+	for(auto k:arr)
 	{
-		cout << arr[j] << ", ";
+		cout << k << " ";
 	}
-	cout << arr[4] << "}" << endl;
+
+	cout << endl;
 
 }
 
