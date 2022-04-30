@@ -4,4 +4,5 @@ project(RamaChandra VERSION 1.0.0)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(rama main/main.cpp)
+add_executable(rama main.cpp my_math.cpp)
+
