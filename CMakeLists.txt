@@ -9,6 +9,7 @@ add_subdirectory(array_pointer)
 add_subdirectory(string_iostreams)
 add_subdirectory(file_stream)
 add_subdirectory(vectors_structures)
+add_subdirectory(first_class)
 
 add_executable(rama main.cpp)
 
@@ -16,5 +17,6 @@ target_link_libraries(rama PUBLIC my_math
                                   array_pointer
                                   string_iostreams
                                   file_stream
-                                  vectors_structures)
+                                  vectors_structures
+                                  first_class)
 
