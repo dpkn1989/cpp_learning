@@ -8,6 +8,7 @@
 #include "first_class/first_class.h"
 #include "operator_overloading/operator_overloading.h"
 #include "template_example/template_example.h"
+#include "inheritance/inheritance.h"
 
 using namespace std;
 
@@ -17,13 +18,24 @@ int main(void)
 {
 	string_iterator();
 
-    Template_test<int> Temp1(5,9);
+	Employee* ptr = new Manager("Ganesh",33,5000);      //If calculate_salary is not defined or declared virtual then the function from Employee will
+	cout << "Salary of m1 is: " << ptr->calculate_salary() << endl;   //be called even if Manager is declared in heap
+	ptr->display_employee();
+	cout << endl;
+
+	Manager e1("Mahesh",32,4800);
+	cout << "Salary of e1 is: " << e1.calculate_salary() << endl;
+	e1.display_employee();
+
+	delete ptr;
+ 
+    /*Template_test<int> Temp1(5,9);
 	Template_test<string> Temp2("Sita ","Ram!");
 
 	cout << "Temp1 result is: " << Temp1.Get_Sum() << endl;
 	cout << "Temp2 result is: " << Temp2.Get_Sum() << endl;
 	
-	/*Car BMW("BMW","White",250);
+	Car BMW("BMW","White",250);
 	Car Audi(BMW);                      //Here, compiler creates its own copy constructor
 	display_car(Audi);
 
