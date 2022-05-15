@@ -9,11 +9,13 @@
 #include "operator_overloading/operator_overloading.h"
 #include "template_example/template_example.h"
 #include "inheritance/inheritance.h"
+#include <list>
 
 using namespace std;
 
 //void display_car(const Car&);
-int input_number(void)
+
+/*int input_number(void)
 {
 	int n;
 	cout << "Enter a number: " << endl; //
@@ -30,13 +32,53 @@ int input_number(void)
 		throw except;
 	}
 	return n;
+}*/
+
+void display_list(list<int>& ls)
+{
+	/*list<int>::iterator it = ls.begin();
+	ls.insert(ls.begin(),90);
+	--it;
+	while(it != ls.end())
+	{
+        cout << *it << " ,";
+		++it;
+	}*/
+	/*for(auto i:ls)
+	{
+		cout << i << ", ";
+	}*/
+	ls.reverse();
+	for(list<int>::reverse_iterator rit=ls.rbegin(); rit != ls.rend(); ++rit)
+	{
+		cout << *rit << ", ";
+	}
+	cout << endl;
 }
 
 int main(void)
 {
 	string_iterator();
- 
-	bool error=false;
+
+	list<int> lst{10,20,30,40,50};
+	lst.insert(++lst.begin(),3);
+	display_list(lst);
+
+    lst.erase(++lst.begin());
+	lst.front() = 0;
+	lst.back() = 60;
+	display_list(lst);
+
+	lst.push_front(100);
+	lst.push_back(70);
+	display_list(lst);
+
+	lst.pop_front();
+	lst.pop_back();
+	display_list(lst);
+
+
+	/*bool error=false;
 	int *ptr,i;
 
 	try{
@@ -68,7 +110,7 @@ int main(void)
 
 	delete [] ptr;
 
-	/*Employee* ptr = new Manager("Ganesh",33,5000);      //If calculate_salary is not defined or declared virtual then the function from Employee will
+	Employee* ptr = new Manager("Ganesh",33,5000);      //If calculate_salary is not defined or declared virtual then the function from Employee will
 	cout << "Salary of m1 is: " << ptr->calculate_salary() << endl;   //be called even if Manager is declared in heap
 	ptr->display_employee();
 	cout << endl;

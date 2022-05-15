@@ -10,10 +10,10 @@ class Employee{
         double m_basic;
 
     public:
-        Employee(string name, int age, double basic){
-            m_name = name;
-            m_age = age;
-            m_basic = basic;
+        Employee(string name, int age, double basic):m_name(name),
+                                                     m_age(age),
+                                                     m_basic(basic){
+            
         }
 
         virtual double calculate_salary()
