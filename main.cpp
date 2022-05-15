@@ -13,12 +13,62 @@
 using namespace std;
 
 //void display_car(const Car&);
+int input_number(void)
+{
+	int n;
+	cout << "Enter a number: " << endl; //
+	cin >> n;
+
+    if(n < 0)
+	{
+		string exception = "Array of negative size cannot be allocated";
+		throw exception;
+	}
+	else if(n == 0)
+	{
+		int except = 0;
+		throw except;
+	}
+	return n;
+}
 
 int main(void)
 {
 	string_iterator();
+ 
+	bool error=false;
+	int *ptr,i;
 
-	Employee* ptr = new Manager("Ganesh",33,5000);      //If calculate_salary is not defined or declared virtual then the function from Employee will
+	try{
+        i = input_number();
+	}
+	catch(std::string exc)
+	{
+		error = true;
+		cout << exc << endl; 
+	}
+	catch(int exe) //catch(...)
+	{
+		error = true;
+		//cout << "Array of size zero is invalid" << endl;
+		cout << "Array of size " << exe << " is invalid" << endl;
+	}
+
+	try{
+        ptr = new int[i];
+	}
+	catch(std::bad_alloc ex)
+	{
+		error = true;
+		cout << "Exception is " << ex.what() << endl;
+	}
+
+    if(!error)
+	cout << "Integer array if size " << i << " created in the heap" << endl;
+
+	delete [] ptr;
+
+	/*Employee* ptr = new Manager("Ganesh",33,5000);      //If calculate_salary is not defined or declared virtual then the function from Employee will
 	cout << "Salary of m1 is: " << ptr->calculate_salary() << endl;   //be called even if Manager is declared in heap
 	ptr->display_employee();
 	cout << endl;
@@ -29,7 +79,7 @@ int main(void)
 
 	delete ptr;
  
-    /*Template_test<int> Temp1(5,9);
+    Template_test<int> Temp1(5,9);
 	Template_test<string> Temp2("Sita ","Ram!");
 
 	cout << "Temp1 result is: " << Temp1.Get_Sum() << endl;
