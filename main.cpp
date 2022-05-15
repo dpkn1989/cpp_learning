@@ -7,16 +7,23 @@
 #include "vectors_strcutures/vectors_structures.h"
 #include "first_class/first_class.h"
 #include "operator_overloading/operator_overloading.h"
+#include "template_example/template_example.h"
 
 using namespace std;
 
-void display_car(const Car&);
+//void display_car(const Car&);
 
 int main(void)
 {
 	string_iterator();
 
-	Car BMW("BMW","White",250);
+    Template_test<int> Temp1(5,9);
+	Template_test<string> Temp2("Sita ","Ram!");
+
+	cout << "Temp1 result is: " << Temp1.Get_Sum() << endl;
+	cout << "Temp2 result is: " << Temp2.Get_Sum() << endl;
+	
+	/*Car BMW("BMW","White",250);
 	Car Audi(BMW);                      //Here, compiler creates its own copy constructor
 	display_car(Audi);
 
@@ -27,7 +34,7 @@ int main(void)
 	VW = Audi;                          //Assignment operator is called here
 	display_car(VW);
 
-	/*Circle c1,c2(5),c3,c5(12);
+	Circle c1,c2(5),c3,c5(12);
 	c3 = c1+c2;
 	cout << c3;
 	Circle c4 = ++c1;
@@ -69,10 +76,10 @@ int main(void)
 	return 0;
 }
 
-void display_car(const Car& c1)
+/*void display_car(const Car& c1)
 {
 	cout << "Car is : " << c1.get_name() << endl;
 	cout << c1.get_name() << " color is: " << c1.get_color() << endl;
 	cout << c1.get_name() << " speed is: " << c1.get_speed() << endl;
 	cout << "=================================" << endl << endl;
-}
+}*/
