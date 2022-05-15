@@ -10,12 +10,24 @@
 
 using namespace std;
 
-//void display_car(const Car&);
+void display_car(const Car&);
 
 int main(void)
 {
 	string_iterator();
-	Circle c1,c2(5),c3,c5(12);
+
+	Car BMW("BMW","White",250);
+	Car Audi(BMW);                      //Here, compiler creates its own copy constructor
+	display_car(Audi);
+
+	Car Benz = BMW;                     //Copy constructor is called in this case too, but we cannot have chain of assisgnment operators while creating an object
+	display_car(Benz);                  //For example, Car Benz = BMW = Audi is not allowed during object creation
+
+	Car VW;
+	VW = Audi;                          //Assignment operator is called here
+	display_car(VW);
+
+	/*Circle c1,c2(5),c3,c5(12);
 	c3 = c1+c2;
 	cout << c3;
 	Circle c4 = ++c1;
@@ -34,7 +46,7 @@ int main(void)
 		cout << "c5 is bigger" << endl;
 	}
     
-	/*Car BMW,Audi("Black",125);
+	Car BMW,Audi("Black",125);
 
     BMW.acceleration();
     BMW.apply_brake();
@@ -57,8 +69,10 @@ int main(void)
 	return 0;
 }
 
-/*void display_car(const Car& c1)
+void display_car(const Car& c1)
 {
-	cout << "Car color is: " << c1.get_color() << endl;
-	cout << "Car speed is: " << c1.get_speed() << endl;
-}*/
+	cout << "Car is : " << c1.get_name() << endl;
+	cout << c1.get_name() << " color is: " << c1.get_color() << endl;
+	cout << c1.get_name() << " speed is: " << c1.get_speed() << endl;
+	cout << "=================================" << endl << endl;
+}

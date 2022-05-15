@@ -19,6 +19,11 @@ void Car::apply_brake(void)
     }
 }
 
+string Car::get_name(void) const
+{
+    return name;
+}
+
 int Car::get_speed(void) const
 {
     speed++;
@@ -28,5 +33,10 @@ int Car::get_speed(void) const
 string Car::get_color(void) const
 {
     return color;
+}
+
+Car::~Car(void)
+{
+    cout << "Destroyer of Car class called" << endl;
 }
 
